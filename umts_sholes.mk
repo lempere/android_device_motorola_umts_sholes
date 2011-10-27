@@ -23,7 +23,7 @@ PRODUCT_COPY_FILES += \
     device/motorola/umts_sholes/init.mapphone_umts.rc:root/init.mapphone_umts.rc
 
 ## (2) Also get non-open-source GSM-specific aspects if available
-$(call inherit-product-if-exists, vendor/motorola/umts_sholes/umts_sholes-vendor.mk)
+$(call inherit-product-if-exists, vendor/lempere/motorola/umts_sholes/umts_sholes-vendor.mk)
 
 ## (3)  Finally, the least specific parts, i.e. the non-GSM-specific aspects
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -167,7 +167,22 @@ PRODUCT_COPY_FILES += \
     device/motorola/umts_sholes/prebuilt/lib/modules/nfs.ko:/system/lib/modules/nfs.ko \
     device/motorola/umts_sholes/prebuilt/lib/modules/qtouch_num.ko:/system/lib/modules/qtouch_num.ko
 
-$(call inherit-product-if-exists, vendor/motorola/umts_sholes/umts_sholes-vendor.mk)
+$(call inherit-product-if-exists, vendor/lempere/motorola/umts_sholes/umts_sholes-vendor.mk)
+
+# Blobs
+$(call inherit-product, vendor/lempere/motorola/umts_sholes/umts_sholes-vendor-blobs.mk)
+
+# Prebuilt boot.img
+LOCAL_KERNEL := device/motorola/umts_sholes/kernel
+PRODUCT_COPY_FILES += \
+	$(LOCAL_KERNEL):kernel
+ 
+# Live wallpaper packages
+PRODUCT_PACKAGES += \
+        LiveWallpapers \
+        LiveWallpapersPicker \
+        MagicSmokeWallpapers \
+        VisualizationWallpapers
 
 # media profiles and capabilities spec
 # $(call inherit-product, device/motorola/sholes/media_a1026.mk)
