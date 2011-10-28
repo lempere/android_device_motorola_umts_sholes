@@ -29,8 +29,6 @@ USE_CAMERA_STUB := false
 -include vendor/motorola/umts_sholes/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_NO_RECOVERY := true
-TARGET_NO_KERNEL := true
 TARGET_NO_RADIOIMAGE := true
 
 TARGET_BOARD_PLATFORM := omap3
